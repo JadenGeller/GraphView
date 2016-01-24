@@ -14,17 +14,16 @@ enum Sign {
 }
 
 internal class EdgeView: UIView {
-    var slope: Sign = .Positive
-    var color: UIColor = .blackColor()
-    
-    let controlView = UIView()
+    public var color: UIColor = .blackColor()
+    public var width: CGFloat = 1
+    public let (startView, controlView, endView) = (UIView(), UIView(), UIView())
     
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetStrokeColorWithColor(context, color.CGColor)
+        CGContextSetLineWidth(context, width)
         CGContextMoveToPoint(context, 0, 0)
         CGContextAddQuadCurveToPoint(context, controlView.center.x, controlView.center.y, bounds.maxX, bounds.maxY)
-//        CGContextAddLineToPoint(context, bounds.maxX, bounds.maxY)
         CGContextStrokePath(context)
     }
 }
