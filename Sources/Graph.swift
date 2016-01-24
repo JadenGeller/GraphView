@@ -54,11 +54,17 @@ extension Graph {
 		edgeBacking.nodesReachableFromNode[node] = []
 	}
 		
-	public mutating func addEdge(lhs: Node, _ rhs: Node) {
+	public mutating func addUndirectionalEdge(lhs: Node, _ rhs: Node) {
 		requireUniqueBacking()
 		assert(nodes.contains(lhs) && nodes.contains(rhs), "An edge must be between nodes in the graph.")
 		edgeBacking.nodesReachableFromNode[lhs]?.insert(rhs)
 		edgeBacking.nodesReachableFromNode[rhs]?.insert(lhs)
 	}
+    
+    public mutating func addDirectedEdge(from lhs: Node, to rhs: Node) {
+        requireUniqueBacking()
+        assert(nodes.contains(lhs) && nodes.contains(rhs), "An edge must be between nodes in the graph.")
+        edgeBacking.nodesReachableFromNode[lhs]?.insert(rhs)
+    }
 }
 
