@@ -44,7 +44,7 @@ public class GraphView: UIView {
         }
     }
     
-    private var graph: Graph<UIView> {
+    public var graph: Graph<UIView> {
         willSet {
             let removedNodes = graph.nodes.subtract(newValue.nodes)
             removedNodes.forEach { $0.superview!.removeFromSuperview() }
@@ -85,7 +85,7 @@ public class GraphView: UIView {
         animator.addBehavior({
             let collision = UICollisionBehavior(items: Array(graph.nodes).map{ $0.superview! })
             collision.translatesReferenceBoundsIntoBoundary = true
-            collision.collisionMode = .Everything
+            collision.collisionMode = .Items
             return collision
         }())
         animator.addBehavior({
