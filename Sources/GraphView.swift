@@ -46,6 +46,8 @@ public class GraphView: UIView {
     
     public var graph: Graph<UIView> {
         willSet {
+            let removedNodes = graph.nodes.subtract(newValue.nodes)
+            let removedEdges = graph.edges
             animator.removeAllBehaviors()
             graph.nodes.forEach{ $0.removeFromSuperview() }
         }

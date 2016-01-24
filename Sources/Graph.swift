@@ -6,13 +6,11 @@
 //  Copyright © 2016 Jaden Geller. All rights reserved.
 //
 
-public struct Graph<Node: Hashable> {
-    public typealias Edge = (Node, Node)
-    
+public struct Graph<Node: Hashable> {    
 	private var edgeBacking = EdgeBacking<Node>()
 	private(set) var nodes = Set<Node>()
     
-    public init<N: SequenceType, E: SequenceType where N.Generator.Element == Node, E.Generator.Element == Edge>(nodes: N, edges: E) {
+    public init<N: SequenceType, E: SequenceType where N.Generator.Element == Node, E.Generator.Element == (Node, Node)>(nodes: N, edges: E) {
         for node in nodes { addNode(node) }
         for edge in edges { addEdge(edge) }
     }
@@ -33,12 +31,12 @@ extension Graph {
 }
 
 extension Graph {
-    public var edges: [Edge] {
-        return nodes.flatMap { a in // fix duplicates
+    public var edges: Set<Edge<Node>> {
+        return Set(nodes.flatMap { a in
             self.adjacentNodes(a).map { b in
-                (a, b)
+                Edge(a, b)
             }
-        }
+        })
     }
 }
 
@@ -63,3 +61,4 @@ extension Graph {
 		edgeBacking.nodesReachableFromNode[rhs]?.insert(lhs)
 	}
 }
+
