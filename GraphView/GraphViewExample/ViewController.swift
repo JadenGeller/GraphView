@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         green.backgroundColor = .greenColor()
         green.frame.size = size
         
-        let yellow: UIView = RoundedView()
-        yellow.backgroundColor = .yellowColor()
-        yellow.frame.size = size
+        let cyan: UIView = RoundedView()
+        cyan.backgroundColor = .cyanColor()
+        cyan.frame.size = size
         
         let purple: UIView = RoundedView()
         purple.backgroundColor = .purpleColor()
@@ -49,16 +49,13 @@ class ViewController: UIViewController {
         gray.backgroundColor = .grayColor()
         gray.frame.size = size
         
-        self.view = GraphView(graph: Graph(nodes: [red, blue ,green ,yellow ,purple ,brown ,orange ,gray], edges: [(red,blue), (blue, green), (green, yellow), (purple, brown), (brown, red), (red, orange), (orange, gray), (yellow, gray)]))
-        
-        print(self)
+        self.view = GraphView(graph: Graph(nodes: [red, blue ,green ,cyan,purple ,brown ,orange ,gray], edges: [(red,blue), (blue, green), (green, cyan), (purple, brown), (brown, red), (red, orange), (orange, gray), (cyan, gray)]))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
 

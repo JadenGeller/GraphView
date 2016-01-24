@@ -19,6 +19,7 @@
 		4D4841C01C5441CA007DEF1B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BC1C5441CA007DEF1B /* Graph.swift */; };
 		4D4841C11C5441CA007DEF1B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BD1C5441CA007DEF1B /* GraphView.swift */; };
 		4D4841C21C5441CA007DEF1B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BE1C5441CA007DEF1B /* RoundedView.swift */; };
+		4D4841C41C5443F9007DEF1B /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841C31C5443F9007DEF1B /* EdgeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		4D4841BC1C5441CA007DEF1B /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Graph.swift; path = ../../Sources/Graph.swift; sourceTree = "<group>"; };
 		4D4841BD1C5441CA007DEF1B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = ../../Sources/GraphView.swift; sourceTree = "<group>"; };
 		4D4841BE1C5441CA007DEF1B /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedView.swift; path = ../../Sources/RoundedView.swift; sourceTree = "<group>"; };
+		4D4841C31C5443F9007DEF1B /* EdgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +102,10 @@
 		4D4841271C541028007DEF1B /* GraphView */ = {
 			isa = PBXGroup;
 			children = (
-				4D4841BB1C5441CA007DEF1B /* EdgeBacking.swift */,
-				4D4841BC1C5441CA007DEF1B /* Graph.swift */,
 				4D4841BD1C5441CA007DEF1B /* GraphView.swift */,
+				4D4841C31C5443F9007DEF1B /* EdgeView.swift */,
 				4D4841BE1C5441CA007DEF1B /* RoundedView.swift */,
+				4D4841C51C5444B0007DEF1B /* Graph */,
 				4D48412A1C541028007DEF1B /* Info.plist */,
 			);
 			path = GraphView;
@@ -129,6 +131,15 @@
 				4D4841B51C544057007DEF1B /* Info.plist */,
 			);
 			path = GraphViewExample;
+			sourceTree = "<group>";
+		};
+		4D4841C51C5444B0007DEF1B /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				4D4841BB1C5441CA007DEF1B /* EdgeBacking.swift */,
+				4D4841BC1C5441CA007DEF1B /* Graph.swift */,
+			);
+			name = Graph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 			files = (
 				4D4841C21C5441CA007DEF1B /* RoundedView.swift in Sources */,
 				4D4841C01C5441CA007DEF1B /* Graph.swift in Sources */,
+				4D4841C41C5443F9007DEF1B /* EdgeView.swift in Sources */,
 				4D4841C11C5441CA007DEF1B /* GraphView.swift in Sources */,
 				4D4841BF1C5441CA007DEF1B /* EdgeBacking.swift in Sources */,
 			);
