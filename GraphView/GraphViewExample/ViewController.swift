@@ -9,7 +9,7 @@
 import UIKit
 import GraphView
 
-let size = CGSize(width: 80, height: 80)
+let frame = CGRect(x: 100, y: 100, width: 80, height: 80)
 
 class ViewController: UIViewController {
     
@@ -18,38 +18,38 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from red nib.
         let red: UIView = RoundedView()
         red.backgroundColor = .redColor()
-        red.frame.size = size
+        red.frame = frame
         
         let blue: UIView = RoundedView()
         blue.backgroundColor = .blueColor()
-        blue.frame.size = size
+        blue.frame = frame
         
         let green: UIView = RoundedView()
         green.backgroundColor = .greenColor()
-        green.frame.size = size
+        green.frame = frame
         
         let cyan: UIView = RoundedView()
         cyan.backgroundColor = .cyanColor()
-        cyan.frame.size = size
+        cyan.frame = frame
         
         let purple: UIView = RoundedView()
         purple.backgroundColor = .purpleColor()
-        purple.frame.size = size
+        purple.frame = frame
         
         let brown: UIView = RoundedView()
         brown.backgroundColor = .brownColor()
-        brown.frame.size = size
+        brown.frame = frame
         
         let orange: UIView = RoundedView()
         
         orange.backgroundColor = .orangeColor()
-        orange.frame.size = size
+        orange.frame = frame
         
         let gray: UIView = RoundedView()
         gray.backgroundColor = .grayColor()
-        gray.frame.size = size
+        gray.frame = frame
         
-        view = GraphView(graph: Graph(nodes: [red, blue ,green ,cyan,purple ,brown ,orange ,gray], edges: [(red,blue), (blue, green), (green, cyan), (purple, brown), (brown, red), (red, orange), (orange, gray), (cyan, gray)]))
+        view = GraphView(graph: Graph(nodes: [red, blue, green, cyan, purple, brown, orange, gray], edges: [(red,blue), (blue, green), (green, cyan), (purple, brown), (brown, red), (red, orange), (orange, gray), (cyan, gray)]))
     }
     
     override func didReceiveMemoryWarning() {
