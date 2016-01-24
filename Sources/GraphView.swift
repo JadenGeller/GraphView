@@ -91,12 +91,6 @@ public class GraphView: UIView {
             animator.addBehavior(attachment)
         }
         
-        if frame.size != CGSizeZero {
-            print("not 0")
-        }
-        else {
-            print("zero")
-        }
         animator.addBehavior({
             let collision = UICollisionBehavior(items: Array(graph.nodes).map{ $0.superview! })
             collision.setTranslatesReferenceBoundsIntoBoundaryWithInsets(UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))

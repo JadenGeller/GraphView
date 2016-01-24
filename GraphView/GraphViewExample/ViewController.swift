@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         gray.backgroundColor = .grayColor()
         gray.frame = frame
         
-        view = GraphView(graph: Graph(nodes: [red, blue, green, cyan, purple, brown, orange, gray], edges: [(red,blue), (blue, green), (green, cyan), (purple, brown), (brown, red), (red, orange), (orange, gray), (cyan, gray)]))
+        view = GraphView(graph: Graph(nodes: [red, blue, green, cyan, purple, brown, orange, gray], undirectedEdges: [(red,blue), (blue, green), (green, cyan), (purple, brown), (brown, red), (red, orange), (orange, gray), (cyan, gray)]))
     }
     
     override func didReceiveMemoryWarning() {
