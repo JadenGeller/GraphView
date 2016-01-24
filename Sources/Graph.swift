@@ -8,7 +8,7 @@
 
 public struct Graph<Node: Hashable> {    
 	private var edgeBacking = EdgeBacking<Node>()
-	private(set) var nodes = Set<Node>()
+	private(set) public var nodes = Set<Node>()
     
     public init<N: SequenceType, E: SequenceType where N.Generator.Element == Node, E.Generator.Element == (from: Node, to: Node)>(nodes: N, directedEdges: E) {
         for node in nodes { addNode(node) }
