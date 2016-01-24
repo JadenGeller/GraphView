@@ -14,9 +14,9 @@ enum Sign {
 }
 
 internal class EdgeView: UIView {
-    public var color: UIColor = .blackColor()
-    public var width: CGFloat = 1
-    public let (startView, controlView, endView) = (UIView(), UIView(), UIView())
+    internal var color: UIColor = .blackColor()
+    internal var width: CGFloat = 1
+    internal let (startView, controlView, endView) = (UIView(), UIView(), UIView())
     
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
