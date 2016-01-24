@@ -19,6 +19,7 @@
 		4D4841C01C5441CA007DEF1B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BC1C5441CA007DEF1B /* Graph.swift */; };
 		4D4841C11C5441CA007DEF1B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BD1C5441CA007DEF1B /* GraphView.swift */; };
 		4D4841C21C5441CA007DEF1B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BE1C5441CA007DEF1B /* RoundedView.swift */; };
+		F7B606461C545775004CC069 /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841251C541028007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +30,28 @@
 			remoteGlobalIDString = 4D4841241C541028007DEF1B;
 			remoteInfo = GraphView;
 		};
+		F7B606471C545775004CC069 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D48411C1C541028007DEF1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D4841241C541028007DEF1B;
+			remoteInfo = GraphView;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7B606491C545776004CC069 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F7B606461C545775004CC069 /* GraphView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4D4841251C541028007DEF1B /* GraphView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,10 +209,12 @@
 				4D4841A31C544057007DEF1B /* Sources */,
 				4D4841A41C544057007DEF1B /* Frameworks */,
 				4D4841A51C544057007DEF1B /* Resources */,
+				F7B606491C545776004CC069 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F7B606481C545775004CC069 /* PBXTargetDependency */,
 			);
 			name = GraphViewExample;
 			productName = GraphViewExample;
@@ -301,6 +325,11 @@
 			isa = PBXTargetDependency;
 			target = 4D4841241C541028007DEF1B /* GraphView */;
 			targetProxy = 4D4841311C541028007DEF1B /* PBXContainerItemProxy */;
+		};
+		F7B606481C545775004CC069 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D4841241C541028007DEF1B /* GraphView */;
+			targetProxy = F7B606471C545775004CC069 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -472,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GraphViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadenGeller.GraphViewExample;
@@ -483,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GraphViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JadenGeller.GraphViewExample;
