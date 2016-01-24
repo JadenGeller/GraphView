@@ -60,9 +60,6 @@ public class GraphView: UIView {
             self.addSubview(view)
             view.frame.origin = CGPoint(x: z, y: z)
             z += 50
-            
-            let push = UIPushBehavior(items: [view], mode: .Instantaneous)
-            animator.addBehavior(push)
         }
         for (a, b) in graph.edges {
             let attachment = UIAttachmentBehavior(item: a, attachedToItem: b)

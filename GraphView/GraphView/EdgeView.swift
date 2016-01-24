@@ -17,11 +17,14 @@ internal class EdgeView: UIView {
     var slope: Sign = .Positive
     var color: UIColor = .blackColor()
     
+    let controlView = UIView()
+    
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetStrokeColorWithColor(context, color.CGColor)
         CGContextMoveToPoint(context, 0, 0)
-        CGContextAddLineToPoint(context, bounds.maxX, bounds.maxY)
+        CGContextAddQuadCurveToPoint(context, controlView.center.x, controlView.center.y, bounds.maxX, bounds.maxY)
+//        CGContextAddLineToPoint(context, bounds.maxX, bounds.maxY)
         CGContextStrokePath(context)
     }
 }
