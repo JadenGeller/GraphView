@@ -103,6 +103,7 @@ public class GraphView: UIView {
             behavior.elasticity = 1
             return behavior
         }())
+        animator.addBehavior(DrawEdgeBehavior(graphView: self))
 
     }
     
@@ -113,7 +114,6 @@ public class GraphView: UIView {
         _setupBehaviors()
         addGestureRecognizer(panGestureRecognizer)
         backgroundColor = .whiteColor()
-        animator.addBehavior(DrawEdgeBehavior(graphView: self))
     }
     
     public var padding: CGFloat = 20 {
@@ -157,9 +157,7 @@ extension GraphView {
         for (a, b) in graph.edges.map({ $0.tuple }) {
             CGContextMoveToPoint(context, a.superview!.center.x, a.superview!.center.y)
             CGContextAddLineToPoint(context, b.superview!.center.x, b.superview!.center.y)
-            CGContextAddLineToPoint(context, b.superview!.center.x - a.superview!.center.x * 0.1 + a.superview!.center.y * 0.1, b.superview!.center.y - a.superview!.center.y * 0.1 + a.superview!.center.x * 0.1)
             CGContextMoveToPoint(context, b.superview!.center.x, b.superview!.center.y)
-            CGContextAddLineToPoint(context, b.superview!.center.x - b.superview!.center.x * 0.1 + b.superview!.center.y * 0.1, b.superview!.center.y - b.superview!.center.y * 0.1 + b.superview!.center.y * 0.1)
         }
         CGContextStrokePath(context)
     }
