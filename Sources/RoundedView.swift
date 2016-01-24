@@ -15,12 +15,13 @@ public class RoundedView: UIView {
     
     public init(_ frame: CGRect) {
         super.init(frame: frame)
-        layer.masksToBounds = true
     }
     
     public override func layoutSublayersOfLayer(layer: CALayer) {
         if layer == self.layer {
             layer.cornerRadius = min(bounds.width, bounds.height) / 2
+//            let padding = NodeView(CGRectInset(self.frame, -20, -20))
+//            self.addSubview(padding)
         }
     }
 
@@ -28,7 +29,4 @@ public class RoundedView: UIView {
         fatalError()
     }
     
-    public override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
-        return .Ellipse
-    }
 }
