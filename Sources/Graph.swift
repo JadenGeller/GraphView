@@ -49,14 +49,14 @@ extension Graph {
 		}
 	}
 	
-	mutating func addNode(node: Node) {
+	public mutating func addNode(node: Node) {
 		requireUniqueBacking()
 		
 		nodes.insert(node)
 		edgeBacking.nodesReachableFromNode[node] = []
 	}
 		
-	mutating func addEdge(lhs: Node, _ rhs: Node) {
+	public mutating func addEdge(lhs: Node, _ rhs: Node) {
 		requireUniqueBacking()
 		assert(nodes.contains(lhs) && nodes.contains(rhs), "An edge must be between nodes in the graph.")
 		edgeBacking.nodesReachableFromNode[lhs]?.insert(rhs)
