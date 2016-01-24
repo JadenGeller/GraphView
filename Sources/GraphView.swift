@@ -29,8 +29,8 @@ public class GraphView: UIView {
         let point = recognizer.locationInView(self)
         switch recognizer.state {
         case .Began:
-            if let view = hitTest(recognizer.locationInView(self), withEvent: nil) where graph.nodes.contains(view) {
-                panAttachment = UIAttachmentBehavior(item: view, attachedToAnchor: point)
+            if let view = hitTest(recognizer.locationInView(self), withEvent: nil), node = view.superview where graph.nodes.contains(view) {
+                panAttachment = UIAttachmentBehavior(item: node, attachedToAnchor: point)
                 panAttachment?.frequency = 5
             }
         case .Changed:
@@ -54,28 +54,35 @@ public class GraphView: UIView {
         }
     }
     
+    public override func layoutSubviews() {
+        graph.nodes.map{ $0.superview! }.forEach{ node in
+            node.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        }
+        super.layoutSubviews()
+    }
+    
     private func _setupGraph() {
-        var z = 0
         graph.nodes.forEach{ view in
-            self.addSubview(view)
-            view.frame.origin = CGPoint(x: z, y: z)
-            z += 50
+            let node = NodeView(view)
+            node.padding = 20
+             node.frame.origin = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
+            addSubview(node)
         }
         for (a, b) in graph.edges {
-            let attachment = UIAttachmentBehavior(item: a, attachedToItem: b)
+            let attachment = UIAttachmentBehavior(item: a.superview!, attachedToItem: b.superview!)
             attachment.length = 0
             attachment.damping = damping
             attachment.frequency = 1
             animator.addBehavior(attachment)
         }
         animator.addBehavior({
-            let collision = UICollisionBehavior(items: Array(graph.nodes))
+            let collision = UICollisionBehavior(items: Array(graph.nodes).map{ $0.superview! })
             collision.translatesReferenceBoundsIntoBoundary = true
             collision.collisionMode = .Everything
             return collision
         }())
         animator.addBehavior({
-            let behavior = UIDynamicItemBehavior(items: Array(graph.nodes))
+            let behavior = UIDynamicItemBehavior(items: Array(graph.nodes).map{ $0.superview! })
             behavior.allowsRotation = false
             behavior.elasticity = 1
             return behavior
@@ -91,10 +98,6 @@ public class GraphView: UIView {
         backgroundColor = .whiteColor()
     }
     
-    public override func layoutSubviews() {
-        // size changed
-//        graph.nodes.forEach{ $0.center = center }
-    }
     
     public var length: CGFloat = 200 {
         didSet {

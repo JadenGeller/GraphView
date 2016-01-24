@@ -21,6 +21,7 @@
 		4D4841C21C5441CA007DEF1B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BE1C5441CA007DEF1B /* RoundedView.swift */; };
 		4D4841C41C5443F9007DEF1B /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841C31C5443F9007DEF1B /* EdgeView.swift */; };
 		F7B606461C545775004CC069 /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841251C541028007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8420D8761C5444C800BF0042 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420D8751C5444C800BF0042 /* NodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		4D4841BD1C5441CA007DEF1B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = ../../Sources/GraphView.swift; sourceTree = "<group>"; };
 		4D4841BE1C5441CA007DEF1B /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedView.swift; path = ../../Sources/RoundedView.swift; sourceTree = "<group>"; };
 		4D4841C31C5443F9007DEF1B /* EdgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
+		8420D8751C5444C800BF0042 /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				4D4841C31C5443F9007DEF1B /* EdgeView.swift */,
 				4D4841BE1C5441CA007DEF1B /* RoundedView.swift */,
 				4D4841C51C5444B0007DEF1B /* Graph */,
+				8420D8751C5444C800BF0042 /* NodeView.swift */,
 				4D48412A1C541028007DEF1B /* Info.plist */,
 			);
 			path = GraphView;
@@ -147,6 +150,7 @@
 			children = (
 				4D4841A91C544057007DEF1B /* AppDelegate.swift */,
 				4D4841AB1C544057007DEF1B /* ViewController.swift */,
+				4D4841BE1C5441CA007DEF1B /* RoundedView.swift */,
 				4D4841AD1C544057007DEF1B /* Main.storyboard */,
 				4D4841B01C544057007DEF1B /* Assets.xcassets */,
 				4D4841B21C544057007DEF1B /* LaunchScreen.storyboard */,
@@ -310,6 +314,7 @@
 				4D4841C41C5443F9007DEF1B /* EdgeView.swift in Sources */,
 				4D4841C11C5441CA007DEF1B /* GraphView.swift in Sources */,
 				4D4841BF1C5441CA007DEF1B /* EdgeBacking.swift in Sources */,
+				8420D8761C5444C800BF0042 /* NodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
