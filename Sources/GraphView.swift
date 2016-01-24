@@ -58,6 +58,13 @@ public class GraphView: UIView {
         graph.nodes.map{ $0.superview! }.forEach{ node in
             node.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         }
+        for a in graph.nodes {
+            let centerGravity = UIAttachmentBehavior(item: a.superview!, attachedToAnchor: self.center)
+            centerGravity.length = 0
+            centerGravity.damping = 1
+            centerGravity.frequency = 0.5
+            animator.addBehavior(centerGravity)
+        }
         super.layoutSubviews()
     }
     
@@ -74,6 +81,13 @@ public class GraphView: UIView {
             attachment.damping = damping
             attachment.frequency = 1
             animator.addBehavior(attachment)
+        }
+        
+        if frame.size != CGSizeZero {
+            print("not 0")
+        }
+        else {
+            print("zero")
         }
         animator.addBehavior({
             let collision = UICollisionBehavior(items: Array(graph.nodes).map{ $0.superview! })
