@@ -21,6 +21,7 @@
 		4D4841C21C5441CA007DEF1B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841BE1C5441CA007DEF1B /* RoundedView.swift */; };
 		4D4841C41C5443F9007DEF1B /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841C31C5443F9007DEF1B /* EdgeView.swift */; };
 		4D4841D81C54D16A007DEF1B /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841D71C54D16A007DEF1B /* Edge.swift */; };
+		4D4841FF1C54FACD007DEF1B /* ScaleBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4841FE1C54FACD007DEF1B /* ScaleBehavior.swift */; };
 		8420D8761C5444C800BF0042 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420D8751C5444C800BF0042 /* NodeView.swift */; };
 		F7B606461C545775004CC069 /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841251C541028007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		4D4841BE1C5441CA007DEF1B /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedView.swift; path = ../../Sources/RoundedView.swift; sourceTree = "<group>"; };
 		4D4841C31C5443F9007DEF1B /* EdgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		4D4841D71C54D16A007DEF1B /* Edge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		4D4841FE1C54FACD007DEF1B /* ScaleBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleBehavior.swift; sourceTree = "<group>"; };
 		8420D8751C5444C800BF0042 /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 				4D4841BC1C5441CA007DEF1B /* Graph.swift */,
 				4D4841BB1C5441CA007DEF1B /* EdgeBacking.swift */,
 				4D4841D71C54D16A007DEF1B /* Edge.swift */,
+				4D4841FE1C54FACD007DEF1B /* ScaleBehavior.swift */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				4D4841C41C5443F9007DEF1B /* EdgeView.swift in Sources */,
 				4D4841C11C5441CA007DEF1B /* GraphView.swift in Sources */,
 				4D4841BF1C5441CA007DEF1B /* EdgeBacking.swift in Sources */,
+				4D4841FF1C54FACD007DEF1B /* ScaleBehavior.swift in Sources */,
 				8420D8761C5444C800BF0042 /* NodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
