@@ -10,9 +10,14 @@ public struct Graph<Node: Hashable> {
 	private var edgeBacking = EdgeBacking<Node>()
 	private(set) var nodes = Set<Node>()
     
-    public init<N: SequenceType, E: SequenceType where N.Generator.Element == Node, E.Generator.Element == (Node, Node)>(nodes: N, edges: E) {
+    public init<N: SequenceType, E: SequenceType where N.Generator.Element == Node, E.Generator.Element == (from: Node, to: Node)>(nodes: N, directedEdges: E) {
         for node in nodes { addNode(node) }
-        for edge in edges { addEdge(edge) }
+        for edge in directedEdges { addDirectedEdge(edge) }
+    }
+    
+    public init<N: SequenceType, E: SequenceType where N.Generator.Element == Node, E.Generator.Element == (Node, Node)>(nodes: N, undirectedEdges: E) {
+        for node in nodes { addNode(node) }
+        for edge in undirectedEdges { addUndirectionalEdge(edge) }
     }
     
     public func adjacentNodes(node: Node) -> Set<Node> {
@@ -26,7 +31,7 @@ extension Graph {
     }
     
     public init<N: SequenceType where N.Generator.Element == Node>(nodes: N) {
-        self.init(nodes: nodes, edges: [])
+        self.init(nodes: nodes, directedEdges: [])
     }
 }
 
