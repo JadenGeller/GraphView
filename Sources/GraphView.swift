@@ -56,8 +56,7 @@ public class GraphView: UIView {
             addedNodes.forEach { self._addNode($0) }
             
             // Setup behaviors
-            animator.removeAllBehaviors()
-            _addBehaviors()
+            _setupBehaviors()
         }
     }
     
@@ -70,11 +69,13 @@ public class GraphView: UIView {
     
     private func _addNode(view: UIView) {
         precondition(!view.isDescendantOfView(self))
-        let node = NodeView(view, withPadding: 20)
+        let node = NodeView(view, withPadding: padding)
         addSubview(node)
     }
     
-    private func _addBehaviors() {
+    private func _setupBehaviors() {
+        animator.removeAllBehaviors()
+
         for (a, b) in graph.edges.map({ $0.tuple }) {
             let attachment = UIAttachmentBehavior(item: a.superview!, attachedToItem: b.superview!)
             attachment.length = 0
@@ -84,8 +85,8 @@ public class GraphView: UIView {
         }
         animator.addBehavior({
             let collision = UICollisionBehavior(items: Array(graph.nodes).map{ $0.superview! })
-            collision.translatesReferenceBoundsIntoBoundary = true
-            collision.collisionMode = .Items
+            collision.setTranslatesReferenceBoundsIntoBoundaryWithInsets(UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
+            collision.collisionMode = .Everything
             return collision
         }())
         animator.addBehavior({
@@ -101,39 +102,32 @@ public class GraphView: UIView {
         self.graph = graph
         super.init(frame: CGRect.zero)
         graph.nodes.forEach{ _addNode($0) }
-        _addBehaviors()
+        _setupBehaviors()
         addGestureRecognizer(panGestureRecognizer)
         backgroundColor = .whiteColor()
     }
     
+    public var padding: CGFloat = 20 {
+        didSet {
+            _setupBehaviors()
+        }
+    }
     
     public var length: CGFloat = 200 {
         didSet {
-            for behavior in animator.behaviors {
-                if let attachement = behavior as? UIAttachmentBehavior {
-                    attachement.length = length
-                }
-            }
+            _setupBehaviors()
         }
     }
     
     public var damping: CGFloat = 1 {
         didSet {
-            for behavior in animator.behaviors {
-                if let attachement = behavior as? UIAttachmentBehavior {
-                    attachement.damping = damping
-                }
-            }
+            _setupBehaviors()
         }
     }
     
     public var frequency: CGFloat = 20 {
         didSet {
-            for behavior in animator.behaviors {
-                if let attachement = behavior as? UIAttachmentBehavior {
-                    attachement.damping = damping
-                }
-            }
+            _setupBehaviors()
         }
     }
     
