@@ -44,15 +44,20 @@ public class GraphView: UIView {
         }
     }
     
-    public var graph: Graph<UIView> {
+    private var graph: Graph<UIView> {
         willSet {
             let removedNodes = graph.nodes.subtract(newValue.nodes)
-            let removedEdges = graph.edges
+            removedNodes.forEach { $0.superview!.removeFromSuperview() }
             animator.removeAllBehaviors()
-            graph.nodes.forEach{ $0.removeFromSuperview() }
         }
         didSet {
-            _setupGraph()
+            // Add new nodes
+            let addedNodes = graph.nodes.subtract(oldValue.nodes)
+            addedNodes.forEach { self._addNode($0) }
+            
+            // Setup behaviors
+            animator.removeAllBehaviors()
+            _addBehaviors()
         }
     }
     
@@ -63,14 +68,14 @@ public class GraphView: UIView {
         super.layoutSubviews()
     }
     
-    private func _setupGraph() {
-        graph.nodes.forEach{ view in
-            let node = NodeView(view)
-            node.padding = 20
-             node.frame.origin = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
-            addSubview(node)
-        }
-        for (a, b) in graph.edges {
+    private func _addNode(view: UIView) {
+        precondition(!view.isDescendantOfView(self))
+        let node = NodeView(view, withPadding: 20)
+        addSubview(node)
+    }
+    
+    private func _addBehaviors() {
+        for (a, b) in graph.edges.map({ $0.tuple }) {
             let attachment = UIAttachmentBehavior(item: a.superview!, attachedToItem: b.superview!)
             attachment.length = 0
             attachment.damping = damping
@@ -95,7 +100,8 @@ public class GraphView: UIView {
     public init(graph: Graph<UIView>) {
         self.graph = graph
         super.init(frame: CGRect.zero)
-        _setupGraph()
+        graph.nodes.forEach{ _addNode($0) }
+        _addBehaviors()
         addGestureRecognizer(panGestureRecognizer)
         backgroundColor = .whiteColor()
     }

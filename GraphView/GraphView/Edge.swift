@@ -25,3 +25,9 @@ extension Edge: Hashable {
 public func ==<Node: Hashable>(lhs: Edge<Node>, rhs: Edge<Node>) -> Bool {
     return lhs.start == lhs.end
 }
+
+extension Edge {
+    public var tuple: (Node, Node) {
+        return (start, end)
+    }
+}
