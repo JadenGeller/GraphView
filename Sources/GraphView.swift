@@ -10,7 +10,7 @@ import UIKit
 
 public class GraphView: UIView {
     lazy private var animator: UIDynamicAnimator = UIDynamicAnimator(referenceView: self)
-    lazy private var panGestureRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panGestureRecognized:")
+    lazy public var panGestureRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panGestureRecognized:")
     
     var panAttachment: UIAttachmentBehavior? {
         willSet {
