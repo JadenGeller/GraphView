@@ -35,6 +35,10 @@ public class GraphView: UIView {
             }
         case .Changed:
             panAttachment?.anchorPoint = point
+        case .Ended:
+            fallthrough
+        case .Cancelled:
+            panAttachment = nil
         default:
             break
         }
@@ -87,6 +91,7 @@ public class GraphView: UIView {
         super.init(frame: CGRect.zero)
         _setupGraph()
         addGestureRecognizer(panGestureRecognizer)
+        backgroundColor = .whiteColor()
     }
     
     public override func layoutSubviews() {
